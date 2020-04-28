@@ -8,3 +8,28 @@
  * graphic logo is a trademark of OpenMRS Inc.
  */
 package org.openmrs;
+
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.openmrs.api.APIException;
+import org.openmrs.api.context.Context;
+import org.openmrs.test.BaseContextSensitiveTest;
+import org.openmrs.util.OpenmrsConstants;
+
+
+public class FieldAnswerTest extends BaseOpenmrsObject {
+
+     FieldAnswer fieldAnswer;
+
+
+     @Before
+     public void setup() {
+          fieldAnswer = new FieldAnswer();
+     }
+
+     @Test
+     public void shouldReturnDirty(){
+          FieldAnswer fieldAnswer = new FieldAnswer();
+     }
