@@ -33,3 +33,10 @@ public class FieldAnswerTest extends BaseOpenmrsObject {
      public void shouldReturnDirty(){
           FieldAnswer fieldAnswer = new FieldAnswer();
      }
+     
+     @Test
+     public void shouldReturnClean(){
+          FieldAnswer fieldAnswer = new FiledAnswer();
+          fieldAnswer.setClean();
+          Assert.assertEquals(fieldAnswer.dirty, false);
+     }
