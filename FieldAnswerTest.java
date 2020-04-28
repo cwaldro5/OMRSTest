@@ -40,3 +40,20 @@ public class FieldAnswerTest extends BaseOpenmrsObject {
           fieldAnswer.setClean();
           Assert.assertEquals(fieldAnswer.dirty, false);
      }
+     
+     @Test
+     public void shouldSetDate(){
+          FieldAnswer fieldAnswer = new FieldAnswer();
+          Date date = new Date();
+          fieldAnswer.setDateCreated(date);
+          Assert.assertEquals(fieldAnswer.dirty, true);
+          Assert.assertEquals(fieldAnswer.dateCreated, date);
+     }
+     
+     @Test
+     public void shouldGetDate(){
+          FieldAnswer fieldAnswer = new FieldAnswer();
+          Date date = new Date();
+          fieldAnswer.setDateCreated(date);
+          Assert.assertEquals(getDateCreated(), date);
+     }
