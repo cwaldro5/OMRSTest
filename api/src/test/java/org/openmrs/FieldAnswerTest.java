@@ -32,8 +32,8 @@ public class FieldAnswerTest {
           fieldAnswer = new FieldAnswer();
      }
      /**
-	   * @see {@link FieldAnswer#setClean()}
-      * @see {@link FieldAnswer#getDirty()}
+	   * @see FieldAnswer#setClean()
+      * @see FieldAnswer#getDirty()
 	   */
      @Test
      public void shouldReturnClean(){
