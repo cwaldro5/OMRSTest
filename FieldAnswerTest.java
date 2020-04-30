@@ -9,6 +9,7 @@
  */
 package org.openmrs;
 
+import java.util.Date;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -21,17 +22,10 @@ import org.openmrs.util.OpenmrsConstants;
 
 public class FieldAnswerTest extends BaseOpenmrsObject {
 
-     FieldAnswer fieldAnswer;
-
 
      @Before
      public void setup() {
           fieldAnswer = new FieldAnswer();
-     }
-
-     @Test
-     public void shouldReturnDirty(){
-          FieldAnswer fieldAnswer = new FieldAnswer();
      }
      
      @Test
@@ -41,6 +35,40 @@ public class FieldAnswerTest extends BaseOpenmrsObject {
           Assert.assertEquals(fieldAnswer.dirty, false);
      }
      
+     @Test
+     public void shouldSetConcept(){
+         FieldAnswer fieldAnswer = new FieldAnswer();
+         Concept concept = new Concept();
+         fieldAnswer.setConcept(concept);
+         Assert.assertTrue(fieldAnswer.dirty);
+         Assert.assertEqual(fieldAnswer.concept, concept);
+     }
+     
+     @Test
+     public void shouldGetConcept(){
+         FieldAnswer fieldAnswer = new FieldAnswer();
+         Concept concept = new Concept();
+         fieldAnswer.setConcept(concept);
+         Assert.assertEqual(fieldAnswer.getConcept(), concept);
+     }
+     
+     @Test
+     public void shouldSetCreator(){
+          FieldAnswer fieldAnswer = new FieldAnswer();
+          User newUser = new User();
+          fieldAnswer.setCreator(newUser);
+          Assert.assertTrue(fieldAnswer.dirty);
+          Assert.assertEqual(fieldAnswer.creator, newUser);
+     }
+     
+     @Test
+     public void shouldGetCreator(){
+          FieldAnswer fieldAnswer = new FieldAnswer();
+          User newUser = new User();
+          fieldAnswer.setCreator(newUser);
+          Assert.assertEqual(fieldAnswer.getCreator(), newUser);
+     }
+      
      @Test
      public void shouldSetDate(){
           FieldAnswer fieldAnswer = new FieldAnswer();
@@ -57,3 +85,33 @@ public class FieldAnswerTest extends BaseOpenmrsObject {
           fieldAnswer.setDateCreated(date);
           Assert.assertEquals(getDateCreated(), date);
      }
+     
+     @Test
+     public void shouldSetField(){
+          FieldAnswer fieldAnswer = new FieldAnswer();
+          Field newField = new Field();
+          fieldAnswer.setField(newField);
+          Assert.assertTrue(fieldAnswer.dirty);
+          Assert.assertEqual(fieldAnser.field, newField);
+     }
+     
+     @Test
+     public void shouldGetField(){
+          FieldAnswer fieldAnswer = FieldAnswer();
+          Field newField = Field();
+          fieldAnswer.setField(newField);
+          Assert.assertEqual(fieldAnswer.getField(), newField);
+     }
+     
+     @Test(expected = UnsupportedOperationException.class)
+     public void shouldThrowErrorWhenSettingId(){
+          FieldAnswer fieldAnswer = new FieldAnswer();
+          fieldAnswer.setId();
+     }
+     
+     @Test(expected = UnsupportedOperationException.class)
+     public void shouldThrowErrorWhenGettingId(){
+          FieldAnswer fieldAnswer = new FieldAnswer();
+          fieldAnswer.getId();
+     }
+}
